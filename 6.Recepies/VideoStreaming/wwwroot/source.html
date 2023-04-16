@@ -6,11 +6,11 @@
 </head>
 <body>
 
-<video id="video-stream-source" controls autoplay></video>
+<video id="video-stream-source" autoplay></video>
 <script src="https://cdn.jsdelivr.net/npm/base64-js@1.5.1/base64js.min.js"></script>
 <script src="signalr.js"></script>
 <script>
-    const webm9MimeCodec = 'video/webm;codecs="vp9"'
+    const webm9MimeCodec = 'video/webm;codecs="vp8,opus"'
     const segmentLimit = 20000;
     const videoSource = document.getElementById('video-stream-source')
 
@@ -37,7 +37,7 @@
             }
         }
 
-        navigator.mediaDevices.getUserMedia({video: true, audio: false})
+        navigator.mediaDevices.getUserMedia({video: true, audio: true})
             .then(function (stream) {
                 videoSource.srcObject = stream;
                 videoSource.play();

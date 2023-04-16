@@ -6,13 +6,13 @@
 </head>
 <body>
 
-<video id="video-stream-target" controls autoplay></video>
+<video id="video-stream-target" autoplay></video>
 <button onclick="start()">watch</button>
 
 <script src="https://cdn.jsdelivr.net/npm/base64-js@1.5.1/base64js.min.js"></script>
 <script src="signalr.js"></script>
 <script>
-    const webm9MimeCodec = 'video/webm;codecs="vp9"'
+    const webm9MimeCodec = 'video/webm;codecs="vp8,opus"'
 
     const videoTarget = document.getElementById('video-stream-target')
 
