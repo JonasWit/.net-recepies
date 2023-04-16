@@ -29,10 +29,10 @@
             const ab64 = base64js.fromByteArray(bytes)
 
             if (ab64.length <= segmentLimit) {
-                subject.next({index: 0, part: ab64});
+                subject.next({index: 0, part: ab64, userName: otherUser});
             } else {
                 for (let i = 0, ii = 0; i < ab64.length; i += segmentLimit, ii++) {
-                    subject.next({index: ii, part: ab64.substr(i, segmentLimit)});
+                    subject.next({ index: ii, part: ab64.substr(i, segmentLimit), userName: otherUser });
                 }
             }
         }
