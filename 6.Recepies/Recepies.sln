@@ -1,14 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatApp", "ChatApp\ChatApp.csproj", "{5627CBFF-C054-4533-BD68-A9253815B1B0}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33712.159
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatApp", "ChatApp\ChatApp.csproj", "{5627CBFF-C054-4533-BD68-A9253815B1B0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrawingGame", "DrawingGame\DrawingGame.csproj", "{339FEEEA-F8BD-4015-B26B-8B6C13A930B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DrawingGame", "DrawingGame\DrawingGame.csproj", "{339FEEEA-F8BD-4015-B26B-8B6C13A930B6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notifications", "Notifications\Notifications.csproj", "{467F8E09-0580-41CC-9720-21AB2DBB6271}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Notifications", "Notifications\Notifications.csproj", "{467F8E09-0580-41CC-9720-21AB2DBB6271}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoStreaming", "VideoStreaming\VideoStreaming.csproj", "{79DBD588-6768-46DA-935D-A65E6575D9F1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VideoStreaming", "VideoStreaming\VideoStreaming.csproj", "{79DBD588-6768-46DA-935D-A65E6575D9F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Collaboration", "Collaboration\Collaboration.csproj", "{711536C4-BFB8-4C54-B4E5-E0EF924B78DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Collaboration", "Collaboration\Collaboration.csproj", "{711536C4-BFB8-4C54-B4E5-E0EF924B78DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CookiesAndTokens", "CookiesAndTokens\CookiesAndTokens.csproj", "{1CDB36C1-6A67-4253-B89D-8990ECDF0AFD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,5 +41,12 @@ Global
 		{711536C4-BFB8-4C54-B4E5-E0EF924B78DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{711536C4-BFB8-4C54-B4E5-E0EF924B78DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{711536C4-BFB8-4C54-B4E5-E0EF924B78DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CDB36C1-6A67-4253-B89D-8990ECDF0AFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CDB36C1-6A67-4253-B89D-8990ECDF0AFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CDB36C1-6A67-4253-B89D-8990ECDF0AFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CDB36C1-6A67-4253-B89D-8990ECDF0AFD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal
