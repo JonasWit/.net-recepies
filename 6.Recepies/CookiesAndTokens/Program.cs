@@ -2,19 +2,20 @@ using CookiesAndTokens;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.JsonWebTokens;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using Microsoft.IdentityModel.Tokens;
+using System.Security.Claims;
 
 var builder = WebApplication.CreateBuilder(args);
 
 var keyManager = new KeyManager();
 builder.Services.AddSingleton(keyManager);
-builder.Services.AddDbContext<IdentityDbContext>(c => c.UseInMemoryDatabase(Guid.NewGuid().ToString()));
+builder.Services.AddDbContext<IdentityDbContext>(c => c.UseInMemoryDatabase("my_db"));
 
 builder.Services.AddIdentity<IdentityUser, IdentityRole>(o =>
     {
         o.User.RequireUniqueEmail = false;
-
         o.Password.RequireDigit = false;
         o.Password.RequiredLength = 4;
         o.Password.RequireLowercase = false;
@@ -25,7 +26,7 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(o =>
     .AddDefaultTokenProviders();
 
 builder.Services.AddAuthentication()
-    .AddJwtBearer("jwy", o =>
+    .AddJwtBearer("jwt", o =>
     {
         o.TokenValidationParameters = new TokenValidationParameters()
         {
@@ -44,7 +45,35 @@ builder.Services.AddAuthentication()
 
     });
 
-var app = builder.Build();
+builder.Services.AddAuthorization();
+
+var app = await builder.BuildAndSetup();
+
+app.MapGet("/", (ClaimsPrincipal user) => user.Claims.Select(c => KeyValuePair.Create(c.Type, c.Value)));
+app.MapGet("/test", () => "test");
+
+app.MapGet("/secret", () => "secret").RequireAuthorization("the_policy");
+app.MapGet("/secret-cookie", () => "cookie secret").RequireAuthorization("the_policy", "cookie_policy");
+app.MapGet("/secret-token", () => "token secret").RequireAuthorization("the_policy", "token_policy");
+
+app.MapGet("/cookie/sign-in", async (SignInManager<IdentityUser> signInManager) =>
+{
+    _ = await signInManager.PasswordSignInAsync("test@test.com", "password", false, false);
+    return Results.Ok();
+});
+
+app.MapGet("/jwt/sign-in", () => (SignInManager<IdentityUser> signInManager) =>
+{
+    var handler = new JsonWebTokenHandler();
+    var key = new RsaSecurityKey(keyManager.RsaKey);
+    var token = handler.CreateToken(new SecurityTokenDescriptor()
+    {
+        Issuer = "https://localhost:7100",
+        Subject = null,
+        SigningCredentials = new SigningCredentials(key, SecurityAlgorithms.RsaSha256)
+    });
+
+});
 
 app.Run();
 

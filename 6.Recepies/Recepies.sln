@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Collaboration", "Collaborat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CookiesAndTokens", "CookiesAndTokens\CookiesAndTokens.csproj", "{1CDB36C1-6A67-4253-B89D-8990ECDF0AFD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{50B9D5B5-FA98-45E8-B089-DE8B5837BF4C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,8 +47,15 @@ Global
 		{1CDB36C1-6A67-4253-B89D-8990ECDF0AFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1CDB36C1-6A67-4253-B89D-8990ECDF0AFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1CDB36C1-6A67-4253-B89D-8990ECDF0AFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50B9D5B5-FA98-45E8-B089-DE8B5837BF4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50B9D5B5-FA98-45E8-B089-DE8B5837BF4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50B9D5B5-FA98-45E8-B089-DE8B5837BF4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50B9D5B5-FA98-45E8-B089-DE8B5837BF4C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {94C8BA92-B76B-4A43-886B-9C34AC0D6F2E}
 	EndGlobalSection
 EndGlobal
